@@ -18,9 +18,9 @@ angular.module('directive.google-signin2', []).
             template: '<span></span>',
             replace: true,
             link: function (scope, element, attrs, ctrl, linker) {
-                attrs.clientid += (ending.test(attrs.clientid) ? '' : '.apps.googleusercontent.com');
+                //attrs.clientid += (ending.test(attrs.clientid) ? '' : '.apps.googleusercontent.com');
 
-                attrs.$set('data-clientid', attrs.clientid);
+                //attrs.$set('data-clientid', attrs.clientid);
                 attrs.$set('theme', attrs.theme);
 
                 // Some default values, based on prior versions of this directive
@@ -35,10 +35,10 @@ angular.module('directive.google-signin2', []).
                 };
                 defaults.theme = attrs.theme;
 
-                var authDefaults = {
-                    cookie_policy: 'single_host_origin'
-                };
-                authDefaults.client_id = attrs.clientid;
+                //var authDefaults = {
+                //    cookie_policy: 'single_host_origin'
+                //};
+                //authDefaults.client_id = attrs.clientid;
 
                 // Overwrite default values if explicitly set
                 angular.forEach(Object.getOwnPropertyNames(defaults), function (propName) {
@@ -69,7 +69,6 @@ angular.module('directive.google-signin2', []).
                         if (el.length) {
                             element.append(el);
                         }
-                        var googleAuth = gapi.auth2.init(authDefaults);
                         gapi.signin2.render(element[0], defaults);
                     };
                 });
