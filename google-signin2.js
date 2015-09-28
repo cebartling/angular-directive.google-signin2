@@ -33,9 +33,12 @@ angular.module('directive.google-signin2', []).
                     onsuccess: window.handleSuccess,
                     onfailure: window.handleFailure
                 };
-
-                defaults.clientid = attrs.clientid;
                 defaults.theme = attrs.theme;
+
+                var authDefaults = {
+                    cookie_policy: 'single_host_origin'
+                };
+                authDefaults.client_id = attrs.clientid;
 
                 // Overwrite default values if explicitly set
                 angular.forEach(Object.getOwnPropertyNames(defaults), function (propName) {
@@ -66,6 +69,7 @@ angular.module('directive.google-signin2', []).
                         if (el.length) {
                             element.append(el);
                         }
+                        var googleAuth = gapi.auth2.init(authDefaults);
                         gapi.signin2.render(element[0], defaults);
                     };
                 });
