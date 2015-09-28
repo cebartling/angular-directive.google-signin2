@@ -1,0 +1,9 @@
+{
+  "name": "angular-directive.google-signin2",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "./google-signin2.js",
+  "dependencies": {
+    "angular": "~1.4.0"
+  }
+}
